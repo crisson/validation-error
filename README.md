@@ -1,4 +1,4 @@
-# validation-error 
+# validation-error [![Build Status](https://travis-ci.org/crisson/validation-error.svg?branch=master)](https://travis-ci.org/crisson/validation-error)
 
 A useful error container.  It works well with [monet](https://github.com/cwmyers/monet.js)'s `Validation` applicative functor, but it may be used as a standalone library as well.  For an example of its use with monet, checkout [validation-example](https://github.com/crisson/validation-example).
 
