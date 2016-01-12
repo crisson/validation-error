@@ -16,10 +16,14 @@
     "applicative",
     "error-accumulation"
   ],
-  "author": "Crisson Jno-Charles",
+  "author": {
+    "name": "Crisson Jno-Charles",
+    "email": "crissonjc@gmail.com"
+  },
   "license": "MIT",
   "devDependencies": {
     "chai": "^3.4.1",
+    "chai-things": "^0.2.0",
     "mocha": "^2.3.4",
     "object-size": "^0.1.1"
   },

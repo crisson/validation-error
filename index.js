@@ -1,8 +1,15 @@
 var objectAssign = require('object-assign')
 
+/**
+ * A container for validation information
+ * @class
+ * @implements {Semigroup} the fantasy land semigroup
+ * @param {String} key  
+ * @param {Any} value
+ */
 function ValidationError(key, value) {
     if (!(this instanceof ValidationError)) {
-        return new ValidationError(key, vlaue)
+        return new ValidationError(key, value)
     }
 
     if (key === null || key === undefined) {
@@ -13,18 +20,41 @@ function ValidationError(key, value) {
 }
 
 ValidationError.prototype = {
+
     /**
-     * Combines the enumerable own-properties of [other] with those of
-     * this instance
-     * @param  {ValidationError} other
-     * @return {ValidationError}       this instance, mutated.
+     * Return the value associated with the key, or undefined if the key does
+     * not exist
+     * @param  {String} key
+     * @return {Any|undefined}
      */
-    concat: function(other) {
-        return objectAssign.assign(this, other)
+    get: function(key){
+        return this[key]
     },
 
     /**
-     * Returns the values associated with this-objects enumerable own-properties.
+     * @see Monoid#empty
+     * @see https://github.com/fantasyland/fantasy-land#monoid
+     * @return {ValidationError}
+     */
+    empty: function(){
+        return ValidationError.of()
+    },
+
+
+    /**
+     * Combines the enumerable own-properties of [others] with those of
+     * this instance
+     * @param  {...ValidationError} others
+     * @return {ValidationError}       this instance, mutated.
+     */
+    concat: function() {
+        var newval = ValidationError.of()
+        return objectAssign.apply(null, [].concat(newval, this,
+            Array.prototype.slice.call(arguments)))
+    },
+
+    /**
+     * Returns the values associated with this object's enumerable own-properties.
      * @return {Array.<Any>}
      */
     toArray: function() {
