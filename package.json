@@ -1,0 +1,29 @@
+{
+  "name": "validation-error",
+  "version": "0.0.1",
+  "description": "Simple container for accumulating validation errors",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/crisson/validation-error.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha index-test.js"
+  },
+  "keywords": [
+    "error",
+    "validation",
+    "applicative",
+    "error-accumulation"
+  ],
+  "author": "Crisson Jno-Charles",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4",
+    "object-size": "^0.1.1"
+  },
+  "dependencies": {
+    "object-assign": "^4.0.1"
+  }
+}
